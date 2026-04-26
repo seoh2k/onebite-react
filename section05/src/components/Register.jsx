@@ -60,7 +60,6 @@ const Register = () => {
             <div>
                 <textarea value= {bio} onChange={onChangeBio}
                 />
-                {bio}
             </div>
         </div> 
     );
