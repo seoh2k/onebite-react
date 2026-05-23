@@ -7,7 +7,7 @@ import List from './assets/components/List';
 const mockData = [
     {
       id: 0,
-      isDone : false,
+      isDone : true,
       content: "React 공부하기",
       date: new Date().getTime(),
     },
