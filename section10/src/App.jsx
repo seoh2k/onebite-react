@@ -1,5 +1,5 @@
 import './App.css';
-import { useState, useRef, useReducer } from 'react';
+import { useState, useRef, useReducer, useCallback } from 'react';
 import Header from './assets/components/Header';
 import Editor from './assets/components/Editor';
 import List from './assets/components/List';
@@ -7,7 +7,7 @@ import List from './assets/components/List';
 const mockData = [
     {
       id: 0,
-      isDone : false,
+      isDone : true,
       content: "React 공부하기",
       date: new Date().getTime(),
     },
@@ -49,7 +49,7 @@ function App() {
   const [todos, dispatch] = useReducer(reducer, mockData);
   const idRef = useRef(3);
 
-  const onCreate = (content) => {
+  const onCreate = useCallback((content) => {
     dispatch({
       type: "CREATE",
       data: {
@@ -59,21 +59,21 @@ function App() {
         date: new Date().getTime(),
       }
     });
-  }
+  }, [])
 
-  const onUpdate = (targetId) => {
+  const onUpdate = useCallback((targetId) => {
     dispatch({
       type: "UPDATE",
       targetId: targetId,
     });
-  }
+  }, [])
 
-  const onDelete = (targetId) => {
+  const onDelete = useCallback((targetId) => {
     dispatch({
       type: "DELETE",
       targetId: targetId
     });
-  }
+  }, [])
 
   return (
     <div className='App'>
