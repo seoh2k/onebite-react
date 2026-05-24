@@ -1,5 +1,5 @@
 import { memo } from "react";
-import "./TodoItem.css"
+import "./TodoItem.css";
 
 const TodoItem = ({id, isDone, content, date, onUpdate, onDelete}) => {
 
